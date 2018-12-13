@@ -1,21 +1,45 @@
-# GemFinder
+# RepoFinder
 
-**TODO: Add description**
+Find matching repos connected to an organization quickly!
 
-## Installation
+## Usage
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `gem_finder` to your list of dependencies in `mix.exs`:
+### Notice
 
-```elixir
-def deps do
-  [
-    {:gem_finder, "~> 0.1.0"}
-  ]
-end
+In the current state, RepoFinder works only in the command line of Elixir (`iex`).
+
+Creating a `mix` task is in the roadmap.
+
+### Find Repositories
+
+#### Using An Access Token
+
+```
+> iex -S mix
+> opts = [access_token: "XXXXXXXXXXXXX", organization: "XXXXXXXX"]
+> RepoFinder.run(opts)
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/gem_finder](https://hexdocs.pm/gem_finder).
+#### Using User and Password
 
+```
+> iex -S mix
+> opts = [user: "XXXXXXXXXXXXX", password: "XXXXXXXXXXXXX", organization: "XXXXXXXX"]
+> RepoFinder.run(opts)
+```
+
+#### Using Language Filter
+
+```
+> iex -S mix
+> opts = [access_token: "XXXXXXXXXXXXX", organization: "XXXXXXXX", lanugage: "XXXX"]
+> RepoFinder.run(opts)
+```
+
+#### Using Name Pattern Filter
+
+```
+> iex -S mix
+> opts = [access_token: "XXXXXXXXXXXXX", organization: "XXXXXXXX", pattern: ~r/XXXX/]
+> RepoFinder.run(opts)
+```
